@@ -1,5 +1,5 @@
 export const dateStringToDate = (dateString: string) => {
-  const dateParts = dateString.split('/').map((val:string): number => {
+  const dateParts = dateString.split('/').map((val: string): number => {
     return parseInt(val);
   });
 

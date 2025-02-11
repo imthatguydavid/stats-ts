@@ -1,13 +1,11 @@
-import { CsvFileReader } from "./CsvFileReader";
-import { dateStringToDate } from "./utils";
-import { MatchResult } from "./MatchResult";
+import { CsvFileReader } from './CsvFileReader';
+import { dateStringToDate } from './utils';
+import { MatchResult } from './MatchResult';
 
-type MatchData = [
-  Date, string, string, number, number, MatchResult, string
-];
+type MatchData = [Date, string, string, number, number, MatchResult, string];
 
 export class MatchReader extends CsvFileReader<MatchData> {
-  mapRow(row:string[]):MatchData {
+  mapRow(row: string[]): MatchData {
     return [
       dateStringToDate(row[0]),
       row[1],
@@ -15,7 +13,7 @@ export class MatchReader extends CsvFileReader<MatchData> {
       parseInt(row[3]),
       parseInt(row[4]),
       row[5] as MatchResult,
-      row[6]
-    ]
+      row[6],
+    ];
   }
 }
