@@ -10,7 +10,7 @@ type MatchData = [Date, string, string, number, number, MatchResult, string];
 
 export class MatchReader {
   matches: MatchData[] = [];
-  constructor(public reader: DataReader) {}
+  constructor(public reader: Datagit sReader) {}
 
   load(): void {
     this.reader.read();
