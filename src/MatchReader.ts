@@ -19,11 +19,19 @@ export class MatchReader {
         dateStringToDate(row[0]),
         row[1],
         row[2],
-        parseInt(row[3]),
-        parseInt(row[4]),
+        this.parseNumber(row[3]),
+        this.parseNumber(row[4]),
         row[5] as MatchResult,
         row[6],
       ];
     });
+  }
+
+  private parseNumber(value: string): number {
+    const number = parseInt(value);
+    if (isNaN(number)) {
+      return 0;
+    }
+    return number;
   }
 }

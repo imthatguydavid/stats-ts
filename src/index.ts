@@ -3,6 +3,7 @@ import { MatchReader } from './MatchReader';
 import { Summary } from './Summary';
 import { WinsAnalysis } from './analyzers/WinsAnalysis';
 import { ConsoleReport } from './reports/ConsoleReport';
+import { AverageGoals } from './analyzers/AverageGoals';
 
 const csvReader = new CsvFileReader('football.csv');
 const matchReader = new MatchReader(csvReader);
@@ -14,4 +15,11 @@ const manUnitedWins = new Summary(
   new ConsoleReport()
 );
 
+const manUnitedAverageGoals = new Summary(
+  new AverageGoals('Man United'),
+  new ConsoleReport()
+);
+
 manUnitedWins.buildAndPrintReport(matches);
+
+manUnitedAverageGoals.buildAndPrintReport(matches);
